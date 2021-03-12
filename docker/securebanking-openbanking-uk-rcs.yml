@@ -1,0 +1,27 @@
+### Spring Configuration for securebanking-openbanking-uk-rcs running in Docker
+
+rcs:
+  issuerId: forgerock-rcs
+
+rs:
+  internal-port: 8082
+  base-url: http://localhost:${rs.internal-port}
+
+idm:
+  internal-port: 8083
+  base-url: http://wiremock:${idm.internal-port}
+
+jwkms:
+  internal-port: 8083
+  base-url: http://wiremock:${jwkms.internal-port}
+
+am:
+  root: http://wiremock:8083
+  cookie:
+    name: iPlanetDirectoryPro
+  oidc:
+    issuerid: ${am.root}/oauth2
+  userprofile:
+    id: id
+  endpoint:
+    userprofile: ${am.root}/userprofile
