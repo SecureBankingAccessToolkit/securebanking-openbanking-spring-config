@@ -26,6 +26,8 @@ logging:
 identity-platform:
   client:
     base_url: https://obdemo.dev.forgerock.financial
+    iam_base_uri: https://iam.dev.forgerock.financial
+    jwk_uri: ${identity-platform.client.iam_base_uri}/am/oauth2/connect/jwk_uri
     contexts_api_client:
       get: /repo/apiclients/@ClientId@
       put: /repo/apiclients/@ClientId@
@@ -61,25 +63,4 @@ rcs:
 
 rs:
   internal-port: 8080
-  base-url: http://rs-simulator:${rs.internal-port}
-
-idm:
-  internal-port: 9080
-  base-url:  http://wiremock:${idm.internal-port}/idm
-
-jwkms:
-  internal-port: 9080
-  base-url: http://wiremock:${jwkms.internal-port}/jwkms
-
-am:
-  hostname: am
-  root: http://wiremock:9080/${am.hostname}
-  cookie:
-    name: iPlanetDirectoryPro
-  oidc:
-    issuerid: ${am.root}/oauth2
-  userprofile:
-    id: id
-  endpoint:
-    userprofile: ${am.root}/userprofile
-    authorize: ${am.root}/oauth2/authorize
+  base-url: https://securebanking-openbanking-uk-rs:${rs.internal-port}
