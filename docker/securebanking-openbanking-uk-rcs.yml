@@ -15,13 +15,49 @@
 #
 
 ### Spring Configuration for securebanking-openbanking-uk-rcs running in Docker
+dns:
+  hosts:
+    root: dev.forgerock.financial
 
 logging:
   level:
     com.forgerock: DEBUG
 
+identity-platform:
+  client:
+    base_url: https://obdemo.dev.forgerock.financial
+    contexts_api_client:
+      get: /repo/apiclients/@ClientId@
+      put: /repo/apiclients/@ClientId@
+      patch: /repo/apiclients/@ClientId@
+      delete: /repo/apiclients/@ClientId@
+    contexts_user:
+      get: /repo/users/@UserId@
+      put: /repo/users/@UserId@
+      patch: /repo/users/@UserId@
+      delete: /repo/users/@UserId@
+    contexts_accounts_consent:
+      get: /repo/consents/account-access/@AccountIntentId@
+      put: /repo/consents/account-access/@AccountIntentId@
+      patch: /repo/consents/account-access/@AccountIntentId@
+      delete: /repo/consents/account-access/@AccountIntentId@
+    contexts_domestic_payment_consent:
+      get: /repo/consents/domestic-payment/@PaymentIntentId@
+      put: /repo/consents/domestic-payment/@PaymentIntentId@
+      patch: /repo/consents/domestic-payment/@PaymentIntentId@
+      delete: /repo/consents/domestic-payment/@PaymentIntentId@
+    #jwk signing service
+    jwk_request_method: POST
+    jwk_consent_signing_endpoint: /jwkms/rcs/signresponse
+
 rcs:
   issuerId: forgerock-rcs
+  # conditional for requests
+  consent:
+    request:
+      jwt:
+        must-be-validated: false # used in (ConsentDetailsApiController: default true)
+
 
 rs:
   internal-port: 8080
@@ -29,7 +65,7 @@ rs:
 
 idm:
   internal-port: 9080
-  base-url: http://wiremock:${idm.internal-port}/idm
+  base-url:  http://wiremock:${idm.internal-port}/idm
 
 jwkms:
   internal-port: 9080
