@@ -63,4 +63,4 @@ rcs:
 
 rs:
   internal-port: 8080
-  base-url: https://securebanking-openbanking-uk-rs:${rs.internal-port}
+  base-url: http://securebanking-openbanking-uk-rs:${rs.internal-port}
