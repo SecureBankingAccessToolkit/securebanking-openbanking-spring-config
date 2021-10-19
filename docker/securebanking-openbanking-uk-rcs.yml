@@ -49,8 +49,8 @@ identity-platform:
       patch: /repo/consents/domestic-payment/@PaymentIntentId@
       delete: /repo/consents/domestic-payment/@PaymentIntentId@
     #jwk signing service
-    jwk_request_method: POST
-    jwk_consent_signing_endpoint: /jwkms/rcs/signresponse
+    jwkms_request_method: POST
+    jwkms_consent_signing_endpoint: /jwkms/rcs/signresponse
 
 rcs:
   issuerId: forgerock-rcs
