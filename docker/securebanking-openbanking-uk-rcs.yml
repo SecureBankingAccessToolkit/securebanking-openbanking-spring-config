@@ -68,3 +68,13 @@ rcs:
       jwt:
         must-be-validated: false # used in (ConsentDetailsApiController: default true)
   rs_fqdn: ${RS_FQDN:localhost}
+  schema: https # part of URI to build
+
+# user by RCS to call backoffice RS endpoints
+rs:
+  backoffice:
+    uris:
+      accounts:
+        findUserById: /backoffice/accounts/search/findByUserId
+      domestic-payments:
+        findUserById: /backoffice/domestic-payments/search/findByUserId
