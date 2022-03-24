@@ -70,7 +70,8 @@ rcs:
   rs_fqdn: ${RS_FQDN:localhost}
   schema: https # part of URI to build
 
-# user by RCS to call backoffice RS endpoints
+# used by RCS to call backoffice RS endpoints
+# @ See: https://github.com/SecureBankingAccessToolkit/securebanking-openbanking-uk-rcs, Class: RsBackofficeConfiguration
 rs:
   backoffice:
     uris:
