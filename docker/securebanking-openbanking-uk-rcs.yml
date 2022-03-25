@@ -68,3 +68,14 @@ rcs:
       jwt:
         must-be-validated: false # used in (ConsentDetailsApiController: default true)
   rs_fqdn: ${RS_FQDN:localhost}
+  schema: https # part of URI to build
+
+# used by RCS to call backoffice RS endpoints
+# @ See: https://github.com/SecureBankingAccessToolkit/securebanking-openbanking-uk-rcs, Class: RsBackofficeConfiguration
+rs:
+  backoffice:
+    uris:
+      accounts:
+        findUserById: /backoffice/accounts/search/findByUserId
+      domestic-payments:
+        findUserById: /backoffice/domestic-payments/search/findByUserId
