@@ -32,27 +32,27 @@ logging:
 # identity platform properties
 identity-platform:
   client:
-    ig_fqdn: ${IG_FQDN:https://obdemo.dev.forgerock.financial}
-    identity_platform_fqdn: ${IDENTITY_PLATFORM_FQDN:https://iam.dev.forgerock.financial}
-    jwk_uri: ${identity-platform.client.identity_platform_fqdn}/am/oauth2/connect/jwk_uri
-    contexts_api_client:
-      get: /repo/apiclients/@ClientId@
-      put: /repo/apiclients/@ClientId@
-      patch: /repo/apiclients/@ClientId@
-      delete: /repo/apiclients/@ClientId@
-    contexts_user:
-      get: /repo/users/@UserId@
-      put: /repo/users/@UserId@
-      patch: /repo/users/@UserId@
-      delete: /repo/users/@UserId@
-    contexts_repo_consent:
-      get: /repo/consents/@IntentId@
-      put: /repo/consents/@IntentId@
-      patch: /repo/consents/@IntentId@
-      delete: /repo/consents/@IntentId@
+    ig_fqdn: ${IG_FQDN:https://obdemo.dev.forgerock.financial} # IG Full Qualified Domain Name
+    identity_platform_fqdn: ${IDENTITY_PLATFORM_FQDN:https://iam.dev.forgerock.financial} # identity platform Full Qualified Domain NAme
+    jwk_uri: ${identity-platform.client.identity_platform_fqdn}/am/oauth2/connect/jwk_uri # JWK keys endpoint
+    contexts_api_client: # Context to build the URI to make a request against the repository endpoint to obtain the client object by clientId
+      get: /repo/apiclients/@ClientId@ # http verb context
+      put: /repo/apiclients/@ClientId@ # http verb context
+      patch: /repo/apiclients/@ClientId@ # http verb context
+      delete: /repo/apiclients/@ClientId@ # http verb context
+    contexts_user: # Context to build the URI to make a request against the repository endpoint to obtain the user object by userId
+      get: /repo/users/@UserId@ # http verb context
+      put: /repo/users/@UserId@ # http verb context
+      patch: /repo/users/@UserId@ # http verb context
+      delete: /repo/users/@UserId@ # http verb context
+    contexts_repo_consent: # Context to build the URI to make a request against the repository endpoint to obtain the consent object intentId
+      get: /repo/consents/@IntentId@ # http verb context
+      put: /repo/consents/@IntentId@ # http verb context
+      patch: /repo/consents/@IntentId@ # http verb context
+      delete: /repo/consents/@IntentId@ # http verb context
     #jwk signing service
-    jwkms_request_method: POST
-    jwkms_consent_signing_endpoint: /jwkms/rcs/signresponse
+    jwkms_request_method: POST # http verb to signing reponses
+    jwkms_consent_signing_endpoint: /jwkms/rcs/signresponse # Consent signing context endpoint
 
 # Rcs properties
 rcs:
@@ -61,7 +61,7 @@ rcs:
     request:
       jwt:
         must-be-validated: false # used in (ConsentDetailsApiController: default true)
-  rs_fqdn: ${RS_FQDN:localhost}
+  rs_fqdn: ${RS_FQDN:localhost} # RS Full Qualified Domain Name
   schema: https # part of URI to build
 
 # used by RCS to call backoffice RS endpoints
@@ -70,6 +70,6 @@ rs:
   backoffice:
     uris:
       accounts:
-        findUserById: /backoffice/accounts/search/findByUserId
+        findUserById: /backoffice/accounts/search/findByUserId # Context endpoint to find accounts user by userId
       domestic-payments:
-        findUserById: /backoffice/domestic-payments/search/findByUserId
+        findUserById: /backoffice/domestic-payments/search/findByUserId # Context endpoint to find payment user by userId
