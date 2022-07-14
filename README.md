@@ -15,14 +15,15 @@ common:
   cors:
     .....
 ```
+> For test purposes the CORS filter supports for default the value `"*"` to allow any origin.
 
-| key                 | description                                    | default value |
-|---------------------|------------------------------------------------|---------------|
-| allowed_origins     | CORS Domains allowed (list)                    | localhost     |
-| allowed_headers     | Headers can be used (string)                   |               |
-| allowed_methods     | Allowed methods for preflight request (string) |               |
-| allowed_credentials | Credentials mode accepted (boolean)            | true          |
-| max_age             | Expiration time of preflight request (string)  | 3600          |
+| key                 | description                                    | default value                    |
+|---------------------|------------------------------------------------|----------------------------------|
+| allowed_origins     | CORS Domains allowed (list)                    | "*" allow all origins by default |
+| allowed_headers     | Headers can be used (string)                   |                                  |
+| allowed_methods     | Allowed methods for preflight request (string) |                                  |
+| allowed_credentials | Credentials mode accepted (boolean)            | true                             |
+| max_age             | Expiration time of preflight request (string)  | 3600                             |
 
 # Swagger properties
 
