@@ -24,3 +24,25 @@ common:
 | allowed_credentials | Credentials mode accepted (boolean)            | true          |
 | max_age             | Expiration time of preflight request (string)  | 3600          |
 
+# Swagger properties
+
+# Swagger Documentation Specification properties
+**Root key**: `swagger`
+
+| key                         | description                      |
+|-----------------------------|----------------------------------|
+| title                       | title                            |
+| description                 | Subtitle description             |
+| license                     | kind of license                  |
+| license-url                 | URL license address              |
+| terms-of-service-url        | terms of service address         |
+| contact-name                | Contact name                     |
+| contact-url                 | Contact url address              |
+| docket-apis-basePackage     | Java package filter              |
+| docket-paths-selector-regex | Pattern to filter selected paths |
+
+```yaml
+swagger:
+  title: Secure Banking Access Toolkit
+  .....
+```
