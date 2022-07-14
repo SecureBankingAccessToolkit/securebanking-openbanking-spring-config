@@ -80,11 +80,11 @@ rs:
 # Swagger Documentation Specification properties
 swagger:
   title: Secure Banking Access Toolkit
-  description: Swagger for Read/Write Open Banking API Specification (UK) (https://openbankinguk.github.io/read-write-api-site3)
+  description: Swagger for consent details and consent decisions (RCS User interfaces)
   license: open-licence
   license-url: https://www.openbanking.org.uk/open-licence
   terms-of-service-url: https://backstage.forgerock.com/knowledge/openbanking/article/a45894685
-  contact-name: ForgeRock RS Simulator
+  contact-name: ForgeRock RS User interfaces
   contact-url: https://www.forgerock.com/
-  docket-apis-basePackage: com.forgerock.securebanking.openbanking.uk.rs.api.obie
-  docket-paths-selector-regex: /open-banking/v(\d+.)?(\d+.)?(\*|\d+)
+  docket-apis-basePackage: com.forgerock.securebanking.openbanking.uk.rcs.api
+  docket-paths-selector-regex: /.*
